@@ -6,8 +6,10 @@
 </head>
 <body>
 {{range .}}
-    <input type="button" value="{{.}}" name="{{.}}" onclick="get_id(this.name)">
-
+{{ $id := .Id }}
+{{ range $index, $element := .Name }}
+<input type="button" value="{{ $element }}" id="{{index  $id  $index }}" name="{{ $element }}" onclick="get_id(this.name)">
+{{end}}
 {{end}}
 <script>
 
